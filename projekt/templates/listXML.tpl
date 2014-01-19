@@ -1,0 +1,1 @@
+{if (isset($XMLdata))}{$XMLdata}{/if}

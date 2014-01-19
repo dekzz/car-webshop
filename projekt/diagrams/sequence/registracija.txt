@@ -1,0 +1,24 @@
+title Modul za registraciju
+
+Neregistrirani korisnik->WEB: Zahtjev za registraciju
+WEB->Modul za registraciju: Upit za sučelje za registraciju
+Modul za registraciju->WEB: Dohvaćeno sučelje za registraciju
+
+loop
+  WEB->Neregistrirani korisnik: Prikaz sučelja za registraciju
+  Neregistrirani korisnik->WEB: Unos podatak u  sučelje
+  WEB->Modul za registraciju: Prosljeđivanje unesenih podataka
+  Modul za registraciju->Modul za registraciju: Provjera ispravnosti podataka
+
+  alt Podaci ispravni
+  Modul za registraciju->Modul za registraciju: Registracija korisnika
+  Modul za registraciju->Modul za registraciju: Otvaranje početnog računa
+  Modul za registraciju->WEB: Rezultat {true}
+    WEB->Neregistrirani korisnik: Registracija uspješna
+  else Podaci neispravni
+    Modul za registraciju->WEB: Rezultat {false}
+    WEB->Neregistrirani korisnik: Poruka o pogrešci
+  end
+
+end
+

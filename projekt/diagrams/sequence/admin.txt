@@ -1,0 +1,120 @@
+title Administrator
+Administrator->WEB: Zahtjev za prijavu
+WEB->Modul za logiranje: Upit za sučelje za prijavu
+Modul za logiranje->WEB: Dohvaćeno sučelje za prijavu
+
+loop
+
+  WEB->Administrator: Prikaz sučelja za prijavu
+  Administrator->WEB: Unos podatak u  sučelje
+  WEB->Modul za logiranje: Prosljeđivanje unesenih podataka
+  Modul za logiranje->Modul za logiranje: Provjera podataka
+  Modul za logiranje->WEB: Rezultat provjere
+ 
+  alt Uspješna prijava
+    WEB->Administrator: Prikaz glavne forme
+ 
+  else Neuspješna prijava
+    WEB->Administrator: Poruka o pogrešci
+  end
+
+end
+Administrator->WEB: Upit o modelima automobila
+WEB->Administrator: Podaci o modelima automobila
+Administrator->WEB: Upit o dodatnoj opremi
+WEB->Administrator: Podaci o dodatnoj opremi
+
+Administrator->WEB:Zahtjev za kreiranje konfiguracije
+WEB->Administrator: Rezultat kreiranja konfiguracije
+
+Administrator->WEB:Zahtjev za spremanje konfiguracije
+WEB->Administrator: Rezultat spremanja konfiguracije
+
+Administrator->WEB:Zahtjev za pregledavanje konfiguracije
+WEB->Administrator: Rezultat otvaranja konfiguracije
+
+Administrator->WEB:Zahtjev za kreiranje predefinirane konfiguracije
+WEB->Administrator: Rezultat kreiranja predefinirane konfiguracije
+
+Administrator->WEB:Zahtjev za pregled/promjenu narudžbi
+WEB->Administrator: Rezultat obrade narudžbe
+
+Administrator->WEB:Zahtjev za kreiranje tipa automobila
+WEB->Administrator: Rezultat kreiranja tipa automobila
+
+Administrator->WEB:Zahtjev za kreiranje dodatne opreme
+WEB->Administrator: Rezultat kreiranja dodatne opreme
+
+Administrator->WEB:Zahtjev za kreiranje akcije
+WEB->Administrator: Rezultat kreiranja akcije
+
+Administrator->WEB: Zahtjev za uvid u statistiku sustava/korisnika
+WEB->Modul za statistiku: Zahtjev za statističkim podacima
+Modul za statistiku->Modul za statistiku: Priprema statističkih podataka
+Modul za statistiku->WEB: Pripremljeni statistički podaci
+WEB->Administrator: Prikaz statističkih podataka
+
+Administrator->WEB: Zahtjev za upravljanje korisničkim računima
+WEB->Modul za logiranje: Zahtjev sučelja za upravljanje korisnicima
+Modul za logiranje->WEB: Sučelje za upravljanje korisnicima
+WEB->Administrator: Forma za upravljanje korisnicima
+Administrator->WEB: Unos podataka u sučelje
+WEB->Modul za logiranje: Proslijeđivanje podataka
+Modul za logiranje->Modul za logiranje: Obrada podataka
+Modul za logiranje->WEB: Rezultat obrade
+
+alt Uspješno
+    WEB->Administrator: Uspješna obrada
+else Neuspješno
+    WEB->Administrator: Neuspješna obrada
+end
+
+Administrator->WEB: Zahtjev za kreiranje trgovine/trgovca
+WEB->Modul za logiranje: Zahtjev sučelja za kreiranje trgovine/trgovca
+Modul za logiranje->WEB: Sučelje za kreiranje trgovine/trgovca
+WEB->Administrator: Forma za kreiranje trgovine/trgovca
+Administrator->WEB: Unos podataka u sučelje
+WEB->Modul za logiranje: Proslijeđivanje podataka
+Modul za logiranje->Modul za logiranje: Obrada podataka
+Modul za logiranje->WEB: Rezultat obrade
+
+alt Uspješno
+    WEB->Administrator: Uspješno kreiranje
+else Neuspješno
+    WEB->Administrator: Neuspješno kreiranje
+end
+
+Administrator->WEB: Zahtjev za upravljanje sustavskim vremenom
+WEB->Sustav: Zahtjev sučelja za upravljanje sustavskim vremenom
+Sustav->WEB: Sučelje za upravljanje sustavskim vremenom
+WEB->Administrator: Forma za upravljanje sustavskim vremenom
+Administrator->WEB: Unos podataka u sučelje
+WEB->Sustav: Proslijeđivanje podataka
+Sustav->Sustav: Obrada podataka
+Sustav->WEB: Rezultat obrade
+
+alt Uspješno
+    WEB->Administrator: Uspješna promjena
+else Neuspješno
+    WEB->Administrator: Neuspješna promjena
+end
+
+Administrator->WEB: Pregled komentara
+WEB->Administrator: Sadržaj komentara
+Administrator->WEB: Komentiraj
+WEB->WEB: Provjera komentara
+
+alt Ispravno unesen komentar
+    WEB->Administrator: Poruka o uspješno unesenom komentaru
+else Neispravno unesen komentar
+    WEB->Administrator: Poruka o neuspješnom unosu komentara
+end
+
+Administrator->WEB: Ocjena komentara
+WEB->Administrator: Poruka o uspješnom ocjenjivanju komentara
+
+Administrator->WEB: Zahtjev za odjavom iz sustava
+WEB->Modul za logiranje: Odjava
+Modul za logiranje->Modul za logiranje: Odjava korisnika
+Modul za logiranje->WEB: Potvrda
+WEB->Administrator: Poruka o uspješnom odjavljivanju iz sustava

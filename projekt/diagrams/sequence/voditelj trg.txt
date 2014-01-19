@@ -1,0 +1,131 @@
+title Voditelj trgovine
+
+Voditelj trgovine->WEB: Zahtjev za prijavu
+WEB->Modul za logiranje: Upit za sučelje za prijavu
+Modul za logiranje->WEB: Dohvaćeno sučelje za prijavu
+
+loop
+
+  WEB->Voditelj trgovine: Prikaz sučelja za prijavu
+  Voditelj trgovine->WEB: Unos podatak u  sučelje
+  WEB->Modul za logiranje: Prosljeđivanje unesenih podataka
+  Modul za logiranje->Modul za logiranje: Provjera podataka
+  Modul za logiranje->WEB: Rezultat provjere
+ 
+  alt Uspješna prijava
+    WEB->Voditelj trgovine: Prikaz glavne forme
+ 
+  else Neuspješna prijava
+    WEB->Voditelj trgovine: Poruka o pogrešci
+  end
+
+end
+Voditelj trgovine->WEB: Upit o modelima automobila
+WEB->Voditelj trgovine: Podaci o modelima automobila
+Voditelj trgovine->WEB: Upit o dodatnoj opremi
+WEB->Voditelj trgovine: Podaci o dodatnoj opremi
+
+Voditelj trgovine->WEB:Zahtjev za kreiranje konfiguracije
+WEB->Voditelj trgovine: Rezultat kreiranja konfiguracije
+
+Voditelj trgovine->WEB:Zahtjev za spremanje konfiguracije
+WEB->Voditelj trgovine: Rezultat spremanja konfiguracije
+
+Voditelj trgovine->WEB:Zahtjev za pregledavanje konfiguracije
+WEB->: Rezultat otvaranja konfiguracije
+
+Voditelj trgovine->WEB:Zahtjev za kreiranje predefinirane konfiguracije
+WEB->Modul za konfiguracije: Upit za sučelje za kreiranje predefinirane konfiguracije
+Modul za konfiguracije->WEB: Dohvaćeno sučelje za kreiranje predefinirane konfiguracije
+WEB->Voditelj trgovine: Prikaz sučelja za kreiranje predefinirane konfiguracije
+Voditelj trgovine->WEB: Unos podatak u  sučelje
+WEB->Modul za konfiguracije: Prosljeđivanje unesenih podataka
+Modul za konfiguracije->Modul za konfiguracije: Kreiranje predefinirane konfiguracije
+Modul za konfiguracije->WEB: Rezultat kreiranja predefinirane konfiguracije
+
+alt Uspješno kreirana predefinirana konfiguracija
+    WEB->Voditelj trgovine: Poruka o uspješnom kreiranju predefinirane konfiguracije
+else Neuspješno kreirana predefinirana konfiguracija
+    WEB->Voditelj trgovine: Poruka o neuspješnom kreiranju predefinirane konfiguracije
+end
+
+Voditelj trgovine->WEB:Zahtjev za pregled/promjenu narudžbi
+WEB->Modul za konfiguracije: Upit za sučelje za pregled/promjenu narudžbi
+Modul za konfiguracije->WEB: Dohvaćeno sučelje za pregled/promjenu narudžbi
+WEB->Voditelj trgovine: Prikaz sučelja za pregled/promjenu narudžbi
+Voditelj trgovine->WEB: Unos podatak u  sučelje
+WEB->Modul za konfiguracije: Prosljeđivanje unesenih podataka
+Modul za konfiguracije->Modul za konfiguracije: Obrada narudžbe
+Modul za konfiguracije->WEB: Rezultat obrade narudžbe
+
+alt Uspješno pregledana/promijenjena narudžba
+    WEB->Voditelj trgovine: Poruka o uspješnom pregledu/promijeni narudžbe
+else Neuspješno pregledana/promijenjena narudžba
+    WEB->Voditelj trgovine: Poruka o neuspješnom pregledu/promijeni narudžbe
+end
+
+Voditelj trgovine->WEB:Zahtjev za kreiranje tipa automobila
+WEB->Modul za automobile: Upit za sučelje za kreiranje tipa automobila
+Modul za automobile->WEB: Dohvaćeno sučelje za kreiranje tipa automobila
+WEB->Voditelj trgovine: Prikaz sučelja za kreiranje tipa automobila
+Voditelj trgovine->WEB: Unos podatak u  sučelje
+WEB->Modul za automobile: Prosljeđivanje unesenih podataka
+Modul za automobile->Modul za automobile: Kreiranje tipa automobila
+Modul za automobile->WEB: Rezultat kreiranja tipa automobila
+
+alt Uspješno kreiran tip automobila
+    WEB->Voditelj trgovine: Poruka o uspješnom kreiranju tipa automobila
+else Neuspješno kreiran tip automobila
+    WEB->Voditelj trgovine: Poruka o neuspješnom kreiranju tipa automobila
+end
+
+Voditelj trgovine->WEB:Zahtjev za kreiranje dodatne opreme
+WEB->Modul za opremu: Upit za sučelje za kreiranje dodatne opreme
+Modul za opremu->WEB: Dohvaćeno sučelje za kreiranje dodatne opreme
+WEB->Voditelj trgovine: Prikaz sučelja za kreiranje dodatne opreme
+Voditelj trgovine->WEB: Unos podatak u  sučelje
+WEB->Modul za opremu: Prosljeđivanje unesenih podataka
+Modul za opremu->Modul za opremu: Kreiranje dodatne opreme
+Modul za opremu->WEB: Rezultat kreiranja dodatne opreme
+
+alt Uspješno kreirana dodatna oprema
+    WEB->Voditelj trgovine: Poruka o uspješnom kreiranju dodatne opreme
+else Neuspješno kreirana dodatna oprema
+    WEB->Voditelj trgovine: Poruka o neuspješnom kreiranju dodatne opreme
+end
+
+Voditelj trgovine->WEB:Zahtjev za kreiranje akcije
+WEB->Modul za opremu: Upit za sučelje za kreiranje akcije
+Modul za opremu->WEB: Dohvaćeno sučelje za kreiranje akcije
+WEB->Voditelj trgovine: Prikaz sučelja za kreiranje akcije
+Voditelj trgovine->WEB: Unos podatak u  sučelje
+WEB->Modul za opremu: Prosljeđivanje unesenih podataka
+Modul za opremu->Modul za opremu: Kreiranje akcije
+Modul za opremu->WEB: Rezultat kreiranja akcije
+
+alt Uspješno kreirana akcija
+    WEB->Voditelj trgovine: Poruka o uspješnom kreiranju akcije
+else Neuspješno kreirana akcija
+    WEB->Voditelj trgovine: Poruka o neuspješnom kreiranju akcije
+end
+
+Voditelj trgovine->WEB: Pregled komentara
+WEB->Voditelj trgovine: Sadržaj komentara
+Voditelj trgovine->WEB: Komentiraj
+WEB->WEB: Provjera komentara
+
+alt Ispravno unesen komentar
+    WEB->Voditelj trgovine: Poruka o uspješno unesenom komentaru
+else Neispravno unesen komentar
+    WEB->Voditelj trgovine: Poruka o neuspješnom unosu komentara
+end
+
+Voditelj trgovine->WEB: Ocjena komentara
+WEB->Voditelj trgovine: Poruka o uspješnom ocjenjivanju komentara
+
+Voditelj trgovine->WEB: Zahtjev za odjavom iz sustava
+WEB->Modul za logiranje: Odjava
+Modul za logiranje->Modul za logiranje: Odjava korisnika
+Modul za logiranje->WEB: Potvrda
+WEB->Voditelj trgovine: Poruka o uspješnom odjavljivanju iz sustava
+

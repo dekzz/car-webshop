@@ -1,0 +1,211 @@
+body {
+	color: white;
+	background-color: black;
+	background-image: url('../slike/CarbonFiber.jpg');
+	margin: 15px;
+	padding: 15px;
+}
+
+#header{
+	text-align: center;
+	font-family:"Courier New", Courier, monospace;
+	font-size: 18pt;
+}
+
+.menu li{
+	text-align: center;
+	list-style-type: none;
+	display: inline;
+}
+
+#sadrzaj {
+	position:relative;
+    top:10%;
+    left:15%;
+	text-align: justify;
+	margin: 10px;
+	padding: 10px;
+	min-height: 70%;
+	height:auto !important;
+	height: 70%;
+	width: 70%;
+}
+
+#pocetna {
+	position:relative;
+    top:15%;
+    left:15%;
+	text-align: justify;
+	margin: 10px;
+	padding: 10px;
+	min-height: 70%;
+	height:auto !important;
+	height: 70%;
+	width: 70%;
+}
+
+.popis
+{
+	background: #202020;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.login{
+	position: absolute;
+	top: 150px;
+	right: 200px;
+	padding: 10px;
+}
+
+#log{
+	position: absolute;
+	right: 30px;
+	top: 20px;
+	border: 0;
+	height: 30px;
+}
+
+#zivotopis{
+	text-align: justify;
+	width: 400px;
+}
+
+.floatLeft{
+	float: left;
+	margin: 5px;
+}
+
+.mvRight{
+	position: relative;
+	bottom: -6px;
+	right: -60px;
+}
+
+.fRight{
+	position: relative;
+	bottom: -6px;
+	right: -100px;
+}
+
+a:link{
+	color:blue;
+	text-decoration: none;
+}
+a:visited {
+	color:blue;
+	text-decoration: none;
+}
+a:hover{
+	color:white;
+	text-decoration: underline;
+}
+a:active{
+	color:red;
+	text-decoration: underline;
+}
+
+#header a:link{
+	color:white;
+	text-decoration: none;
+}
+#header a:visited {
+	color:white;
+	text-decoration: none;
+}
+#header a:hover{
+	color:white;
+	text-decoration: none;
+}
+#header a:active{
+	color:white;
+	text-decoration: none;
+}
+
+#footer {
+   position:fixed;
+   left:400px;
+   bottom:0px;
+   height:60px;
+   width:35%;
+}
+
+#trapezBott{
+	width:350px;
+    height:0;
+    border-bottom:60px solid grey;
+    border-left:60px solid transparent;
+    border-right:60px solid transparent;
+}
+
+.greska
+{
+	color:red;
+}
+
+#automobili
+{
+	border: 1px solid;
+	padding: 3px;
+}
+
+#automobili td
+{
+	border: 1px solid;
+	padding: 3px;
+}
+
+#dijelovi
+{
+	border: 1px solid;
+	padding: 3px;
+}
+
+#dijelovi td
+{
+	border: 1px solid;
+	padding: 3px;
+}
+
+#konfiguracije
+{
+	border: 1px solid;
+	padding: 3px;
+}
+
+#konfiguracije td
+{
+	border: 1px solid;
+	padding: 3px;
+}
+
+.addCol
+{
+	float:left;
+}
+
+#logSearch
+{
+	position: relative;
+	left: 85%;
+}
+
+#lightbox 
+{
+    position:fixed; /* keeps the lightbox window in the current viewport */
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url(overlay.png) repeat;
+    text-align:center;
+    z-index: 100;
+}
+#lightbox p 
+{
+    text-align:right;
+    color:#fff;
+    margin-right:20px;
+    font-size:12px;
+  
+}

@@ -1,0 +1,19 @@
+title Modul za logiranje
+
+Korisnik->WEB: Zahtjev za prijavu
+WEB->Modul za logiranje: Upit za sučelje za prijavu
+Modul za logiranje->WEB: Dohvaćeno sučelje za prijavu
+
+loop
+  WEB->Korisnik: Prikaz sučelja za prijavu
+  Korisnik->WEB: Unos podatak u  sučelje
+  WEB->Modul za logiranje: Prosljeđivanje unesenih podataka
+  Modul za logiranje->Modul za logiranje: Provjera podataka
+  Modul za logiranje->WEB: Rezultat provjere
+  alt Uspješna prijava
+    WEB->Korisnik: Prikaz glavne forme
+  else Neuspješna prijava
+    WEB->Korisnik: Poruka o pogrešci
+  end
+end
+

@@ -1,0 +1,94 @@
+title Registrirani korisnik u sustavu
+
+Korisnik->WEB: Zahtjev za prijavu
+WEB->Modul za logiranje: Upit za sučelje za prijavu
+Modul za logiranje->WEB: Dohvaćeno sučelje za prijavu
+
+loop
+
+  WEB->Korisnik: Prikaz sučelja za prijavu
+  Korisnik->WEB: Unos podatak u  sučelje
+  WEB->Modul za logiranje: Prosljeđivanje unesenih podataka
+  Modul za logiranje->Modul za logiranje: Provjera podataka
+  Modul za logiranje->WEB: Rezultat provjere
+ 
+  alt Uspješna prijava
+    WEB->Korisnik: Prikaz glavne forme
+ 
+  else Neuspješna prijava
+    WEB->Korisnik: Poruka o pogrešci
+  end
+
+end
+
+Korisnik->WEB: Upit o modelima automobila
+WEB->Korisnik: Podaci o modelima automobila
+Korisnik->WEB: Upit o dodatnoj opremi
+WEB->Korisnik: Podaci o dodatnoj opremi
+
+Korisnik->WEB:Zahtjev za kreiranje konfiguracije
+WEB->Modul za konfiguracije: Upit za sučelje za kreiranje konfiguracije
+Modul za konfiguracije->WEB: Dohvaćeno sučelje za kreiranje konfiguracije
+WEB->Korisnik: Prikaz sučelja za kreiranje konfiguracije
+Korisnik->WEB: Unos podatak u  sučelje
+WEB->Modul za konfiguracije: Prosljeđivanje unesenih podataka
+Modul za konfiguracije->Modul za konfiguracije: Kreiranje konfiguracije
+Modul za konfiguracije->WEB: Rezultat kreiranja konfiguracije
+
+alt Uspješno kreiranje konfiguracije
+    WEB->Korisnik: Poruka o uspješnom kreiranju konfiguracije
+else Neuspješno kreiranje konfiguracije
+    WEB->Korisnik: Poruka o neuspješnom kreiranju konfiguracije
+end
+
+Korisnik->WEB:Zahtjev za spremanje konfiguracije
+WEB->Modul za konfiguracije: Upit za sučelje za spremanje konfiguracije
+Modul za konfiguracije->WEB: Dohvaćeno sučelje za spremanje konfiguracije
+WEB->Korisnik: Prikaz sučelja za spremanje konfiguracije
+Korisnik->WEB: Unos podatak u  sučelje
+WEB->Modul za konfiguracije: Prosljeđivanje unesenih podataka
+Modul za konfiguracije->Modul za konfiguracije: Spremanje konfiguracije
+Modul za konfiguracije->WEB: Rezultat spremanja konfiguracije
+
+alt Uspješno spremanje konfiguracije
+    WEB->Korisnik: Poruka o uspješnom spremanju konfiguracije
+else Neuspješno spremanje konfiguracije
+    WEB->Korisnik: Poruka o neuspješnom spremanju konfiguracije
+end
+
+Korisnik->WEB:Zahtjev za pregledavanje konfiguracije
+WEB->Modul za konfiguracije: Upit za sučelje za pregledavanje konfiguracije
+Modul za konfiguracije->WEB: Dohvaćeno sučelje za pregledavanje konfiguracije
+WEB->Korisnik: Prikaz sučelja za pregledavanje konfiguracije
+Korisnik->WEB: Unos podatak u  sučelje
+WEB->Modul za konfiguracije: Prosljeđivanje unesenih podataka
+Modul za konfiguracije->Modul za konfiguracije: Otvaranje konfiguracije
+Modul za konfiguracije->WEB: Rezultat otvaranja konfiguracije
+
+alt Uspješno otvorena konfiguracije
+    WEB->Korisnik: Poruka o uspješnom otvaranju konfiguracije
+else Neuspješno otvaranje konfiguracije
+    WEB->Korisnik: Poruka o neuspješnom otvaranju konfiguracije
+end
+
+
+Korisnik->WEB: Pregled komentara
+WEB->Korisnik: Sadržaj komentara
+Korisnik->WEB: Komentiraj
+WEB->WEB: Provjera komentara
+
+alt Ispravno unesen komentar
+    WEB->Korisnik: Poruka o uspješno unesenom komentaru
+else Neispravno unesen komentar
+    WEB->Korisnik: Poruka o neuspješnom unosu komentara
+end
+
+Korisnik->WEB: Ocjena komentara
+WEB->Korisnik: Poruka o uspješnom ocjenjivanju komentara
+
+Korisnik->WEB: Zahtjev za odjavom iz sustava
+WEB->Modul za logiranje: Odjava
+Modul za logiranje->Modul za logiranje: Odjava korisnika
+Modul za logiranje->WEB: Potvrda
+WEB->Korisnik: Poruka o uspješnom odjavljivanju iz sustava
+
